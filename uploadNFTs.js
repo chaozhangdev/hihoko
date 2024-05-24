@@ -1,15 +1,21 @@
 require("dotenv").config();
+
 const axios = require("axios");
 
 const API_KEY = process.env.OPENSEA_API_KEY;
-const CONTRACT_ADDRESS = "your_contract_address";
-const TOKEN_IDS = [1, 2, 3]; // 你的NFT token ID 列表
-const IMAGE_BASE_URL = "https://your_image_hosting/";
+const CONTRACT_ADDRESS = "0xB0Cbe7f964dd8318981F9C068F060d6De621B20a";
+const TOKEN_IDS = [90, 91, 92]; // 你的NFT token ID 列表
+const IMAGE_BASE_URL =
+  "https://raw.githubusercontent.com/chaozhangdev/hinoko/main/img/";
+
+const handleNameFormat = (numberId) => {
+  return numberId.toString().padStart(4, "0");
+};
 
 const uploadNFT = async (tokenId) => {
   const metadata = {
-    name: `NFT #${tokenId}`,
-    description: "Description of your NFT",
+    name: `Hinoko #${handleNameFormat(tokenId)}`,
+    description: "",
     image: `${IMAGE_BASE_URL}${tokenId}.png`,
   };
 
